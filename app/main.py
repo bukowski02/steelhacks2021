@@ -10,7 +10,7 @@ def home():
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
     create = """
-        CREATE TABLE IF NOT EXISTS "words" (
+        CREATE TABLE IF NOT EXISTS words (
           id INTEGER PRIMARY KEY,
           word TEXT,
           definition TEXT,
