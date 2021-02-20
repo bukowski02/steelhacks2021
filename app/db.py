@@ -1,3 +1,5 @@
+import sqlite3
+
 def hello():
     return "helloaawea"
 
@@ -26,6 +28,10 @@ def init():
     c.execute(create)
 
 """
+import this in each file you need
+    import sqlite3
+    
+use these lines to make the connect and get a cursor
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
 
