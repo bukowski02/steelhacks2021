@@ -8,6 +8,7 @@ app = Flask(__name__)
 def home():
 #initializes the database
     conn = sqlite3.connect('database.db')
+    c = conn.cursor()
     create = """
         CREATE TABLE IF NOT EXISTS "words" (
           id INTEGER PRIMARY KEY,
@@ -17,12 +18,12 @@ def home():
           learnedDate INTEGER,
         );
         """
-    conn.execute(create)
+    c.execute(create)
     insert = """
         INSERT INTO words (id, word, definition) VALUES (0, 'ye', 'alternate form of yes, affirmative, etc')
     """
-    conn.execute(insert)
+    c.execute(insert)
     #conn = sqlite3.connect('database.db')
-    print(conn.execute("SELECT * FROM words"))
+    print(c.execute("SELECT * FROM words"))
     return
     #return render_template("index.html")
