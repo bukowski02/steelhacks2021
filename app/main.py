@@ -8,5 +8,5 @@ app = Flask(__name__)
 def home():
     conn = sqlite3.connect('database.db')
     print(conn.execute("SELECT * FROM words")
-    
+    return
     #return render_template("index.html")
