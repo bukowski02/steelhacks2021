@@ -8,7 +8,7 @@ app = Flask(__name__)
 # don't touch 
 
 def home():
-    return render_template(index.html)
+    return render_template("index.html")
 
 def hello_world():
     return 0
