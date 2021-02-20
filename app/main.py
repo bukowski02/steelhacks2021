@@ -25,5 +25,5 @@ def home():
     c.execute(insert)
     #conn = sqlite3.connect('database.db')
     print(c.execute("SELECT * FROM words"))
-    return
+    return "yeet"
     #return render_template("index.html")
