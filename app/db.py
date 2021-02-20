@@ -29,7 +29,7 @@ def init():
         CREATE TABLE IF NOT EXISTS flashcardsets (
           id INTEGER
           flashcards TEXT
-        ):
+        );
         """
     c.execute(create)
 
