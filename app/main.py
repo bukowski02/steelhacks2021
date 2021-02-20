@@ -15,7 +15,7 @@ def home():
           word TEXT,
           definition TEXT,
           learned INTEGER,
-          learnedDate INTEGER,
+          learnedDate INTEGER
         );
         """
     c.execute(create)
