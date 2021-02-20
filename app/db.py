@@ -12,6 +12,9 @@ def init():
           word TEXT,
           possibleDefs TEXT
         );
+        """
+    c.execute(create)
+    create = """
         CREATE TABLE IF NOT EXISTS flashcards (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           word TEXT,
@@ -20,6 +23,9 @@ def init():
           examplePhrase TEXT,
           learned INTEGER
         );
+        """
+    c.execute(create)
+    create = """
         CREATE TABLE IF NOT EXISTS flashcardsets (
           id INTEGER
           flashcards TEXT
@@ -30,7 +36,7 @@ def init():
 """
 import this in each file you need
     import sqlite3
-    
+
 use these lines to make the connect and get a cursor
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
