@@ -27,5 +27,5 @@ def home():
     #conn = sqlite3.connect('database.db')
     c.execute("SELECT * FROM words")
     a = c.fetchall()
-    return a[0][0]
+    return a[0][1]
     #return render_template("index.html")
