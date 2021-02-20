@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-#import db
+from . import db 
 import sqlite3
 app = Flask(__name__)
 
@@ -24,6 +24,7 @@ def home():
     """
     c.execute(insert)
     #conn = sqlite3.connect('database.db')
-    a = c.execute("SELECT * FROM words")
-    return a
+    c.execute("SELECT * FROM words")
+    a = c.fetchall()
+    return a[0]
     #return render_template("index.html")
