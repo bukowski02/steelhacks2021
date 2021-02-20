@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    db.helloaawea()
+    db.hello()
 #initializes the database
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
