@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
+    db.helloaawea()
 #initializes the database
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
@@ -26,5 +27,5 @@ def home():
     #conn = sqlite3.connect('database.db')
     c.execute("SELECT * FROM words")
     a = c.fetchall()
-    return a[0]
+    return a[0][0]
     #return render_template("index.html")
