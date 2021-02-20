@@ -18,5 +18,4 @@ if __name__ == "__main__":
             INSERT INTO words (id, word, definition) VALUES (0, 'ye', 'alternate form of yes, affirmative, etc')
         """
         conn.execute(insert)
-        db.dbInit()
         app.run()
