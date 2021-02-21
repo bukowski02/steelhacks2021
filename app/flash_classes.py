@@ -1,5 +1,6 @@
 import random
 from collections import defaultdict
+import random
 
 class Flashcard:
 
@@ -44,33 +45,44 @@ class Flashcard:
         return out
         
 class FlashcardSet: #interface for flashcard database, as well as place for training functionality
-
     def __init__(ID):
         self.id = ID
-        
+        self.flashcardIDs = []
         self.loadFlashcardIDs()
-        self.loadedFlashcards = {}
 
         self.wordsToIDs = defaultdict(list)
-        
-        #TODO freq list
-        
+        self.queue = []
+
+        self.spacing = 15
+                
 
     def loadFlashcardIDs(self):
+        #TODO load them allllll [next is for later]
         #TODO load flash card IDs from self.id into self.flashcardIDs from database
         return
 
     def getFlashcard(self,cardid):
         
-        if cardid not in self.flashcardIDs():
+        if cardid not in self.flashcardIDs:
             raise ValueError("Card ID does not belong to this set.")
         
-        if cardid not in self.loadedFlashcards.keys():
-            data = {} #TODO drom database (this function will not work until then
-            ou = Flashcard.fromDict(data)
-            self.wordsToIDs[ou.word].append(ou.id)
-            self.loadedFlashcards[cardid] = ou
+        data = {} #TODO drom database (this function will not work until then
             
-        return self.loadedFlashcards[cardid]
+        return Flashcard.fromDict(data)
+
+    def weightedRandomWord(self):
+        return random.choice(self.flashcardIDs); #TODO weight
+
+    def initQueue(self):
+        for k in range(self.spacing+2):
+            self.queue.append(self.weightedRandomWord())
+
+    def nextFlashcard(self):
+        d = random.randint(-1,3)
+        if d == -1:
+            self.queue.append(self.weightedRandomWord())
+        else:
+            self.queue.append(self.queue[-(self.spacing+d)])
+        return getFlashcard(self.queue.pop(0))
 
     

@@ -3,7 +3,6 @@ from dictionaryAPI import *
 
 def db_load():
     words = allWords()
-    print(words[:100])
 
     for word in words:
         for definition in getDef(word, "en", "gb"):
