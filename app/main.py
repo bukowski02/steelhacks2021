@@ -10,6 +10,10 @@ def home():
 
     return render_template("index.html")
 
+@app.route('/card/<wordID>')
+def card(wordID):
+    return render_template("card.html")
+
 @app.route('/post',methods = ['POST'])
 def postProcessing():
     """
