@@ -16,5 +16,5 @@ def postProcessing():
     return redirect(url_for('success',name = name))
 
 @app.route('/success')
-def nameHello()
+def nameHello(name):
     return "hello"+name
