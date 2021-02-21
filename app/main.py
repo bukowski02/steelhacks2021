@@ -12,9 +12,9 @@ def home():
 
 @app.route('/post',methods = ['POST'])
 def postProcessing():
-    name = request.form['nm']
-    return redirect(url_for('success',name = name))
+    user = request.form['nm']
+    return redirect(url_for('success',name = user))
 
-@app.route('/success')
-def nameHello(name):
-    return "hello"+name
+@app.route('/success/<name>')
+def succ(name):
+    return "hello %s" % name
