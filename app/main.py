@@ -11,7 +11,8 @@ def home():
     return render_template("index.html")
 
 @app.route('/post',methods = ['POST'])
-def postProcessing():"""
+def postProcessing():
+    """
     if request.form['1']:
         blah = request.form['1']
     elif request.form['2']:
