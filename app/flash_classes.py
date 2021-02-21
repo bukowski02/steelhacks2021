@@ -6,9 +6,9 @@ class Flashcard:
 
     def fromDict(dic): #factory that builds a flashcard from a preexisting dict
         out = Flashcard(dic["word"], ID=dic["id"])
-        self.setDefinition("defn")
-        self.setExample(dic["exampleClipID"],dic["examplePhrase"])
-        self.setLearned(dic["learned"])
+        out.setDefinition("defn")
+        out.setExample(dic["exampleClipID"],dic["examplePhrase"])
+        out.setLearned(dic["learned"])
         return out
     
     def __init__(self, wrd, ID=None):
@@ -30,7 +30,7 @@ class Flashcard:
     def setDefinition(self, wordid):
         self.definition = wordid
 
-    def setLearned(boolean):
+    def setLearned(self,boolean):
         self.learned = boolean
     
     def toDict(self):
@@ -39,13 +39,13 @@ class Flashcard:
                          ("word",self.word),
                          ("defn",self.defn),
                          ("exampleClipID",self.exampleClipID),
-                         ("examplePhrase",self.examplePhrase)
+                         ("examplePhrase",self.examplePhrase),
                          ("learned",self.learned)]:
             out[name] = val
         return out
         
 class FlashcardSet: #interface for flashcard database, as well as place for training functionality
-    def __init__(ID):
+    def __init__(self,ID):
         self.id = ID
         self.flashcardIDs = []
         self.loadFlashcardIDs()
