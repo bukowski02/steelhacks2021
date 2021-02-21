@@ -9,3 +9,12 @@ def home():
     db.init()
 
     return render_template("index.html")
+
+@app.route('/post',methods = ['POST'])
+def postProcessing():
+    name = request.form['nm']
+    return redirect(url_for('success',name = name))
+
+@app.route('/success')
+def nameHello()
+    return "hello"+name
