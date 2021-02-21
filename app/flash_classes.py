@@ -40,7 +40,7 @@ class Flashcard:
                          ("defn",self.defn),
                          ("exampleClipID",self.exampleClipID),
                          ("examplePhrase",self.examplePhrase)
-                         ("learned",self.learned]:
+                         ("learned",self.learned)]:
             out[name] = val
         return out
         

@@ -5,8 +5,8 @@ import os
 #for language we will be using en, and for accent we will be using gb
 #for no accent enter null
 def getDef(focusWord, lang, accent):
-    app_id = os.eviron.get('key')
-    app_key = os.eviron.get('apiId')
+    app_id = os.environ.get('key')
+    app_key = os.environ.get('apiId')
     if accent == 'null':
         language = lang
     else:
