@@ -2,6 +2,7 @@ import ast
 from youtubeAPI import *
 import pickle
 import re
+from collections import defaultdict
 
 def flashcardCreate(word):
 
@@ -12,12 +13,12 @@ def flashcardCreate(word):
     loop = 0
     while loop == 0:
         for video in transList:
-            for sentence in video:
-                if ' '+word in sentence['text']:
-                    sentence = sentence['text']
-                    code     = sentence['code']
-                    st       = sentence['start']
-                    dur      = sentence['duration']
+            for wordseq in video:
+                if ' '+word in wordseq['text']:
+                    sentence = wordseq['text']
+                    code     = wordseq['code']
+                    st       = wordseq['start']
+                    dur      = wordseq['duration']
                     loop +=1
 
     mp3id = downloadAudio(code, word, st, dur)
@@ -36,14 +37,15 @@ def allWords():
     transList = pickle.load(f)
     f.close()
 
-    words = set()
+    words = defaultdict(int)
     for video in transList:
         for sentence in video:
-            es =  re.findall(r'[a-zA-Z]+', sentence["text"]) + re.findall(r"[a-zA-Z]+[\'][a-zA-Z]+", sentence["text"]);
+            es =  re.findall(r'[ ][a-zA-Z]+[ ]', sentence["text"]) + re.findall(r"[ ][a-zA-Z]+[\'][a-zA-Z]+[ ]", sentence["text"]);
             for word in es:
-                words.add(word.lower())
+                words[word.lower()] += 1
+    prev = sorted(words.items(),key = lambda x: -x[1])
 
-    return list(words)
+    return [k[0] for k in prev]
                 
                 
     
