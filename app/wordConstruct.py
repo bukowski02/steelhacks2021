@@ -1,6 +1,7 @@
 import ast
 from youtubeAPI import *
 import pickle
+import re
 
 def flashcardCreate(word):
 
@@ -29,7 +30,20 @@ def flashcardCreate(word):
 
     return flashCard
 
-    
+def allWords():
+
+    f = open('transcripts.pkl', 'rb')
+    transList = pickle.load(f)
+    f.close()
+
+    words = set()
+    for video in transList:
+        for sentence in video:
+            es =  re.findall(r'[a-zA-Z]+', sentence["text"]) + re.findall(r"[a-zA-Z]+[\'][a-zA-Z]+", sentence["text"]);
+            for word in es:
+                words.add(word.lower())
+
+    return list(words)
                 
                 
     

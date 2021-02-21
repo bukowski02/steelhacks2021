@@ -16,24 +16,18 @@ class Flashcard:
             self.id = ID
         
         self.word = wrd                                 #STR, word to be studied
-        self.definition = None                          #STR, definition selected by used based on context
+        self.definition = None                          #INT, definition selected by used based on context, id in table
         self.exampleClipID = None                       #INT, ID of sound clip
         self.examplePhrase = None                       #STR, Example phrase from sound clip
 
         self.learned=False
-
-    def findPossibleDefns(word):
-        return ["PLACEHOLDER"]
     
     def setExample(self, clipID, phrase):
         self.exampleClipID = clipID
         self.examplePhrase = phrase
 
-    def setDefinition(self, indexOrStr):
-        if isinstance(indexOrStr,int):
-            self.definition = self.possDefns(indexOrStr)
-        if isinstance(indexOrStr,str):
-            self.definition = indexOrStr
+    def setDefinition(self, wordid):
+        self.definition = wordid
 
     def setLearned(boolean):
         self.learned = boolean

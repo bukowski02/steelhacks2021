@@ -18,7 +18,7 @@ def init():
         CREATE TABLE IF NOT EXISTS flashcards (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           word TEXT,
-          definition TEXT,
+          definition INTEGER,
           exampleLClipID INTEGER,
           examplePhrase TEXT,
           learned INTEGER
