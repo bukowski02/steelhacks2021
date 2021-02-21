@@ -27,8 +27,8 @@ def init():
     c.execute(create)
     create = """
         CREATE TABLE IF NOT EXISTS flashcardsets (
-          id INTEGER
-          flashcards TEXT
+          id INTEGER,
+          flashcards BLOB
         );
         """
     c.execute(create)
